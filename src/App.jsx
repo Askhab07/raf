@@ -4,7 +4,8 @@ import ProductBlock from './components/ProductBlock';
 
 function App() {
   return (
-    <div className="bg min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen text-white">
+      <div className="bg"/>
       <Header />
       <ProductBlock />
     </div>

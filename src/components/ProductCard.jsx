@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
     <div
       className={`flip-card ${
         flipped ? 'flipped' : ''
-      } min-w-44 min-h-64 shadow-sm`}
+      }  min-h-64`}
       onClick={handleClick}
       style={{ cursor: 'pointer' }}
     >
@@ -20,9 +20,9 @@ const ProductCard = ({ product }) => {
             src={product.image}
             alt={product.name}
           />
-          <div className="bg-black rounded-xl flex flex-col px-2 pt-1 pb-2 min-h-28 justify-between">
+          <div className="bg-black bg-opacity-75 rounded-b-xl flex flex-col px-2 pt-1 pb-2 min-h-28 justify-between">
             <h2 className="text-lg font-medium">{product.name}</h2>
-            <h2 className="bg-gray-400 rounded-lg flex items-center justify-center">
+            <h2 className="bg-white bg-opacity-10 rounded-lg flex items-center justify-center">
               {product.price}₽
             </h2>
             <div className="flex justify-center gap-1">

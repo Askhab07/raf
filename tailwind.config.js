@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'ios': { 'raw': '(hover: none)' },
+        'android': { 'raw': '(hover: none) and (-webkit-touch-callout: none)' }
+      }
+    },
   },
   plugins: [],
 }

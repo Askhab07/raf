@@ -41,3 +41,37 @@
 .flip-card-back {
   transform: rotateY(180deg);
 }
+/* Скрытие скроллбара */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Дополнительные стили для плавности */
+header {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+/* Плавная прокрутка категорий */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Стили для snap-прокрутки */
+.snap-x {
+  scroll-snap-type: x mandatory;
+}
+.snap-start {
+  scroll-snap-align: start;
+}
+
+/* Кастомный скроллбар (опционально) */
+.scrollbar-custom::-webkit-scrollbar {
+  height: 4px;
+}
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}

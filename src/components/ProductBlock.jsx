@@ -34,7 +34,7 @@ const ProductBlock = ({ setActiveCategory }) => {
   }, [setActiveCategory]);
 
   return (
-    <div className='py-36 relative flex flex-col gap-5'>
+    <div className='pt-36 pb-10 relative flex flex-col gap-5'>
       {Object.entries(menu).map(([categoryName, products]) => (
         <div 
           id={`category-${categoryName}`}

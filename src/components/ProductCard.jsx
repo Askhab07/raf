@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
       <div className="flip-card-inner">
         <div className="flip-card-front text-white">
           <img
-            className="rounded-t-xl min-w-44 h-36 object-cover"
+            className="rounded-t-xl w-44 h-36 object-cover"
             src={product.image}
             alt={product.name}
           />

@@ -1,4 +1,5 @@
 import './App.css';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import ProductBlock from './components/ProductBlock';
 import { useState } from 'react';
@@ -11,7 +12,8 @@ function App() {
       <div className="bg"/>
       <Header activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
       <ProductBlock setActiveCategory={setActiveCategory} />
-    </div>
+      <Footer />
+      </div>
   );
 }
 

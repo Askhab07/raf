@@ -6,14 +6,17 @@ import { useState } from 'react';
 
 function App() {
   const [activeCategory, setActiveCategory] = useState(null);
-  
+
   return (
     <div className="min-h-full text-white">
-      <div className="bg"/>
-      <Header activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
+      <div className="bg" />
+      <Header
+        activeCategory={activeCategory}
+        setActiveCategory={setActiveCategory}
+      />
       <ProductBlock setActiveCategory={setActiveCategory} />
       <Footer />
-      </div>
+    </div>
   );
 }
 

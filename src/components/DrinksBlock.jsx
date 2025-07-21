@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import { menu } from '../database/database';
-import ProductList from './ProductList';
+import { drinks } from '../database/database';
+import DrinkList from './DrinkList';
 
-const ProductBlock = ({ setActiveCategory }) => {
+const DrinksBlock = ({ setActiveCategory }) => {
   useEffect(() => {
-    const categoryElements = Object.keys(menu).map(categoryName => 
+    const categoryElements = Object.keys(drinks).map(categoryName => 
       document.getElementById(`category-${categoryName}`)
     ).filter(Boolean);
 
@@ -35,18 +35,18 @@ const ProductBlock = ({ setActiveCategory }) => {
 
   return (
     <div className='pt-36 pb-10 relative flex flex-col gap-5'>
-      {Object.entries(menu).map(([categoryName, products]) => (
+      {Object.entries(drinks).map(([categoryName, drinks]) => (
         <div 
           id={`category-${categoryName}`}
           className='flex flex-col justify-between gap-5 px-3'
           key={categoryName}
         >
           <h1 className="font-bold text-3xl">{categoryName}</h1>
-          <ProductList products={products} />
+          <DrinkList drinks={drinks} category={categoryName} />
         </div>
       ))}
     </div>
   );
 };
 
-export default ProductBlock;
+export default DrinksBlock;

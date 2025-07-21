@@ -3,11 +3,11 @@ import ProductCard from './ProductCard';
 
 const ProductList = ({ products }) => {
   return (
-    <div className='flex flex-wrap gap-3'>
-      {products.map(product => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
+      <div className="my-auto flex flex-wrap gap-3">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
   );
 };
 

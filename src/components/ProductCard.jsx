@@ -3,51 +3,61 @@ import React, { useState } from 'react';
 const ProductCard = ({ product }) => {
   const [flipped, setFlipped] = useState(false);
 
-  const handleClick = () => setFlipped(!flipped);
-
   return (
-    <div
-      className={`flip-card ${flipped ? 'flipped' : ''} w-[169px] sm:w-[176px] md:w-[187px] h-64 md:h-72`}
-      onClick={handleClick}
-      style={{ cursor: 'pointer' }}
+    <div 
+      className="relative w-full aspect-[2/3] cursor-pointer perspective-1000"
+      onClick={() => setFlipped(!flipped)}
     >
-      <div className="w-[169px] sm:w-[176px] md:w-[187px] md:h-72 flip-card-inner">
-        <div className="flip-card-front text-white">
-          <img
-            className="w-[169px] brightness-110 sm:w-[176px] md:w-[187px] h-36 md:h-40 rounded-t-xl object-cover"
-            src={product.image}
-            alt={product.name}
-          />
-          <div className="bg-black bg-opacity-75 rounded-b-xl flex flex-col px-2 pt-1 pb-2 h-28 justify-between">
-            <h2 className="text-sm md:text-base font-medium">{product.name}</h2>
-            <div className='flex flex-col gap-2'>
-              <h2 className="md:text-lg bg-white bg-opacity-10 rounded-lg flex items-center justify-center">
+      <div className={`relative w-full h-full transition-transform duration-700 ease-in-out transform-style-preserve-3d ${
+        flipped ? 'rotate-y-180' : ''
+      }`}>
+        {/* Лицевая сторона */}
+        <div className="absolute inset-0 backface-hidden bg-black bg-opacity-75 rounded-xl overflow-hidden flex flex-col">
+          <div className="relative h-[55%] flex-shrink-0 overflow-hidden">
+            <img
+              className="absolute inset-0 w-full h-full object-cover brightness-110"
+              src={product.image}
+              alt={product.name}
+              loading="lazy"
+            />
+          </div>
+          <div className="p-2 sm:p-3 flex flex-col gap-1 sm:gap-2 flex-grow justify-between">
+            <h2 className="font-medium text-white text-[clamp(12px,3.5vw,16px)] leading-tight line-clamp-2">
+              {product.name}
+            </h2>
+            <div className="flex flex-col gap-2 sm:gap-2 justify-between items-center">
+              <span className="flex items-center justify-center w-full bg-white bg-opacity-10 text-white px-2 sm:px-3 py-1 rounded-lg text-[clamp(12px,3.5vw,16px)]">
                 {product.price}₽
-              </h2>
-              <div className="flex justify-center gap-1">
-                <span className="bg-white w-1 h-1 rounded-full"></span>
-                <span className="bg-white w-1 h-1 rounded-full"></span>
-                <span className="bg-white w-1 h-1 rounded-full"></span>
+              </span>
+              <div className="flex gap-1">
+                {[...Array(3)].map((_, i) => (
+                  <span key={i} className="w-1 h-1 bg-white rounded-full" />
+                ))}
               </div>
             </div>
           </div>
         </div>
-        {/* BACK */}
-        <div className="flip-card-back rounded-xl min-h-64 bg-white bg-opacity-10 backdrop-blur-sm flex flex-col items-center justify-between px-4 pt-4 pb-2 blur-0">
-          <div>
-            <h2 className="text-lg font-bold mb-2">Ингредиенты:</h2>
-            <ul className="list-disc list-inside text-sm">
-              {Array.isArray(product.ingredients) ? (
-                product.ingredients.map((ing, idx) => <li className='first-letter:capitalize' key={idx}>{ing}</li>)
-              ) : (
-                <li>{product.ingredients}</li>
-              )}
-            </ul>
-          </div>
-          <div className="flex justify-center gap-1">
-            <span className="bg-white w-1 h-1 rounded-full"></span>
-            <span className="bg-white w-1 h-1 rounded-full"></span>
-            <span className="bg-white w-1 h-1 rounded-full"></span>
+
+        {/* Обратная сторона */}
+        <div className="absolute inset-0 backface-hidden bg-white bg-opacity-10 backdrop-blur-sm rounded-xl rotate-y-180 p-3 sm:p-4 overflow-y-auto flex flex-col">
+          <h3 className="font-bold text-white text-[clamp(14px,4vw,18px)] mb-2">
+            Ингредиенты:
+          </h3>
+          <ul className="list-disc pl-5 text-[clamp(12px,3.2vw,14px)] space-y-1">
+            {Array.isArray(product.ingredients) ? (
+              product.ingredients.map((ing, idx) => (
+                <li key={idx} className="first-letter:capitalize text-white">
+                  {ing}
+                </li>
+              ))
+            ) : (
+              <li className="text-white">{product.ingredients}</li>
+            )}
+          </ul>
+          <div className="flex justify-center gap-1 mt-auto pt-2">
+            {[...Array(3)].map((_, i) => (
+              <span key={i} className="w-1 h-1 bg-white rounded-full" />
+            ))}
           </div>
         </div>
       </div>

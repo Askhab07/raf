@@ -339,7 +339,7 @@ export const drinks = {
   Black: [
     {
       id: 1,
-      name: 'Экспрессо',
+      name: 'Эспрессо',
       price: 150,
       price2: 200,
     },

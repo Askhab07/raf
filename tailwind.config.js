@@ -4,10 +4,8 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        ios: { raw: '(hover: none)' },
-        android: { raw: '(hover: none) and (-webkit-touch-callout: none)' },
-        sm: '390px',
-        md: '410px',
+        xs: '430px',
+        sm: '500px',
       },
     },
   },
